@@ -1,4 +1,4 @@
-package byfayzullayev.itcourses.Entity;
+package byfayzullayev.itcourses.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;

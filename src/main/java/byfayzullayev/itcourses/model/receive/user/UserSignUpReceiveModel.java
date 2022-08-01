@@ -1,13 +1,18 @@
-package byfayzullayev.itcourses.model.receive;
+package byfayzullayev.itcourses.model.receive.user;
 
-import byfayzullayev.itcourses.Entity.RoleEnum;
+import byfayzullayev.itcourses.entity.RoleEnum;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserSignUpReceiveModel {
 
 

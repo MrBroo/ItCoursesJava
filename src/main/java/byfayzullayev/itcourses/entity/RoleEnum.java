@@ -1,4 +1,4 @@
-package byfayzullayev.itcourses.Entity;
+package byfayzullayev.itcourses.entity;
 
 public enum RoleEnum {
 
