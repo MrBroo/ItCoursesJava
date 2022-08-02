@@ -43,4 +43,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailService).passwordEncoder(this.passwordEncoder());
     }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .addFilterBefore(jwtTokenFilter, BasicAuthenticationFilter.class)
+                .authorizeRequests()
+                .antMatchers("/api/itCourses/user/*").permitAll()
+                .antMatchers("/api/itCourses/cards/*").permitAll()
+                .antMatchers("/api/itCourses/file/*").permitAll()
+                .antMatchers("/api/itCourses/file/files/*").permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    }
 }

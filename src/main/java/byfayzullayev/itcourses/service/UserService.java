@@ -57,9 +57,7 @@ public class UserService implements BaseService {
         return SUCCESS_V2;
     }
 
-    public ApiResponse login(
-         UserSignInReceiveModel  userSignInReceiveModel
-    ) {
+    public ApiResponse login(UserSignInReceiveModel userSignInReceiveModel) {
         Optional<UserEntity> optionalUserEntity = userRepository.findByUsername(userSignInReceiveModel.getUsername());
         if (optionalUserEntity.isEmpty())
             return USER_NOT_FOUND;

@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +22,7 @@ public class UserSignUpReceiveModel {
     private String fullName;
 
     @JsonProperty("phone_number")
-    @NotEmpty(message = "telefon raqam bo`sh bo`lishi kerakemas")
+    @NotNull(message = "telefon raqam bo`sh bo`lishi kerakemas")
     private Long phoneNumber;
 
     @JsonProperty("username")

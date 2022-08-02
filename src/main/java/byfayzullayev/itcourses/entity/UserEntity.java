@@ -6,16 +6,19 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
+
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE", discriminatorType=DiscriminatorType.STRING)
+@DiscriminatorValue("USER")
+@Table(name = "USER_SINGLE_TABLE")
+@Entity(name = "USER_SINGLE_TABLE")
 public class UserEntity extends BaseEntity implements UserDetails {
 
     private String fullName;
@@ -24,7 +27,7 @@ public class UserEntity extends BaseEntity implements UserDetails {
     private String password;
     private boolean active = true;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<RoleEntity> roleEntityList;
 
 
