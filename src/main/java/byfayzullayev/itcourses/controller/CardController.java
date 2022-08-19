@@ -3,7 +3,7 @@ package byfayzullayev.itcourses.controller;
 import byfayzullayev.itcourses.entity.CardEntity;
 import byfayzullayev.itcourses.model.receive.CardReceiveModel;
 import byfayzullayev.itcourses.model.response.ApiResponse;
-import byfayzullayev.itcourses.service.CardService;
+import byfayzullayev.itcourses.service.CardServiceImplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/itCourses/cards")
 public class CardController{
-    private final CardService cardService;
+    private final CardServiceImplements cardService;
 
     @Autowired
-    public CardController(CardService cardService) {
+    public CardController(CardServiceImplements cardService) {
         this.cardService = cardService;
     }
 

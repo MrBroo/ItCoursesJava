@@ -6,22 +6,16 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-public class RoleEntity implements GrantedAuthority {
+public class RoleEntity{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String name;
 
-    @Enumerated(EnumType.STRING)
-    private RoleEnum roleEnum;
-
-    @Override
-    public String getAuthority() {
-        return roleEnum.name();
-    }
 }

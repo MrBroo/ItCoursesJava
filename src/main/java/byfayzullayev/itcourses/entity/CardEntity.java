@@ -9,12 +9,11 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "TYPE", discriminatorType=DiscriminatorType.STRING)
-@DiscriminatorValue("CARD")
-@Table(name = "CARD_SINGLE_TABLE")
-@Entity(name = "CARD_SINGLE_TABLE")
-public class CardEntity extends BaseEntity{
+@Entity
+public class CardEntity{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String about;
 }
